@@ -12,7 +12,7 @@ public class Packer {
 
     public static void main(String[] args) throws IOException, ParseException {
         MessageFactory<IsoMessage> mf = new MessageFactory();
-        ConfigParser.configureFromClasspathConfig(mf,"config_bank.xml");
+        ConfigParser.configureFromClasspathConfig(mf, "iso8583-def.xml");
 
         IsoMessage m = mf.newMessage(0200);
         m.setValue(3, "000000", IsoType.ALPHA, 6);

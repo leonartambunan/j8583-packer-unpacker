@@ -12,7 +12,7 @@ public class Unpacker {
 
     public static void main(String[] args) throws IOException, ParseException {
         MessageFactory<IsoMessage> mf = new MessageFactory();
-        ConfigParser.configureFromClasspathConfig(mf,"config_bank.xml");
+        ConfigParser.configureFromClasspathConfig(mf, "iso8583-def.xml");
 
         String message = "0430F23A00098A80800A0000004000000000162008899999999999491000000000100089033116060800071016060803310331800000000039050390520000000332600AAAABBB 3600000070199999020000071003311606080000000090500000000905";
         IsoMessage m = mf.parseMessage(message.getBytes(), 0);
