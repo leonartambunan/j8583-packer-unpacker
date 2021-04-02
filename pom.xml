@@ -51,7 +51,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>id.co.nio.iso8583.Unpacker</mainClass>
+                            <mainClass>id.co.nio.iso8583.Unpack</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

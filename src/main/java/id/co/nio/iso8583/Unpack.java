@@ -8,7 +8,7 @@ import com.solab.iso8583.parse.ConfigParser;
 import java.io.IOException;
 import java.text.ParseException;
 
-public class Unpacker {
+public class Unpack {
 
     public static void main(String[] args) throws IOException, ParseException {
         MessageFactory<IsoMessage> mf = new MessageFactory();
