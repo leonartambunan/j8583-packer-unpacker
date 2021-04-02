@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Appenders>
+		<Console name="stdout" target="SYSTEM_OUT">
+			<PatternLayout>
+				<Pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} [%C{1}:%M:%L]-%msg%n</Pattern>
+			</PatternLayout>
+		</Console>
+
+		<RollingFile name="ROOT"
+					 fileName="logROOT/ROOT.log"
+					 filePattern="logROOT/API-ROOT.%d{MM-dd-yyyy}.%i.log.gz"
+					 ignoreExceptions="false">
+			<PatternLayout>
+				<Pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} [%C{1}:%M:%L]-%msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="100MB" />
+				<TimeBasedTriggeringPolicy interval="1" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="RF_APITRANSFER"
+			fileName="logAPITRANSFER/apitransfer.log"
+			filePattern="logAPITRANSFER/apitransfer.%d{MM-dd-yyyy}.%i.log.gz"
+			ignoreExceptions="false">
+			<PatternLayout>
+				<Pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} [%C{1}:%M:%L]-%msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="100MB" />
+				<TimeBasedTriggeringPolicy interval="1" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="RF_NEO" fileName="logNEO/neo.log"
+			filePattern="logNEO/neo.%d{MM-dd-yyyy}.%i.log.gz"
+			ignoreExceptions="false">
+			<PatternLayout>
+				<Pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} [%C{1}:%M:%L]-%msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="100MB" />
+				<TimeBasedTriggeringPolicy interval="1" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="RF_ONLINE"
+			fileName="logONLINE/online.log"
+			filePattern="logONLINE/online.%d{MM-dd-yyyy}.%i.log.gz"
+			ignoreExceptions="false">
+			<PatternLayout>
+				<Pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} [%C{1}:%M:%L]-%msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="100MB" />
+				<TimeBasedTriggeringPolicy interval="1" />
+			</Policies>
+		</RollingFile>
+
+	</Appenders>
+
+	<Loggers>
+		<Logger name="root" level="DEBUG">
+			<AppenderRef ref="ROOT" />
+			<AppenderRef ref="stdout" />
+		</Logger>
+
+		<Logger name="APITRANSFER" level="DEBUG">
+			<AppenderRef ref="RF_APITRANSFER" />
+		</Logger>
+		<Logger name="NEO" level="DEBUG">
+			<AppenderRef ref="RF_NEO" />
+		</Logger>
+		<Logger name="ONLINE" level="DEBUG">
+			<AppenderRef ref="RF_ONLINE" />
+		</Logger>
+	</Loggers>
+</Configuration>

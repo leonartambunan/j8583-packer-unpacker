@@ -14,13 +14,14 @@ public class Packer {
         MessageFactory<IsoMessage> mf = new MessageFactory();
         ConfigParser.configureFromClasspathConfig(mf, "iso8583-def.xml");
 
-        IsoMessage m = mf.newMessage(0200);
-        m.setValue(3, "000000", IsoType.ALPHA, 6);
-        m.setValue(11, "000001", IsoType.ALPHA, 6);
-        m.setValue(41, "3239313130303031", IsoType.ALPHA, 16);
-        m.setValue(60, "001054455354204D45535347", IsoType.ALPHA, 24);
-        m.setValue(70, "0301", IsoType.ALPHA, 4);
-        m.setForceSecondaryBitmap(true);
+        IsoMessage m = mf.newMessage(0x0200);
+        m.setValue(3, "000000", IsoType.NUMERIC, 6);
+        m.setValue(18, "0001", IsoType.NUMERIC, 4);
+        m.setValue(41, "3239313130303031", IsoType.ALPHA, 8);
+        m.setValue(60, "001054455354204D45535347", IsoType.LLVAR,24);
+        m.setValue(63, "0301", IsoType.LLLVAR, 4);
+
+        m.setForceSecondaryBitmap(false);
 
         System.out.println(m.debugString());
 
